@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Actividad | Vida Saludable </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="test" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 Portable - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-8"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent"></div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Portafolio De Actividades</a></li>
+   <li class="current-page-parent"><a href="vida_saludable.html" class="current-page-parent daddy">Vida Saludable</a>
+   <ul>
+      <li><a href="actividad_fsica.html" class="daddy">Actividad Física</a>
+      <ul class="other-section">
+         <li><a href="tipos_de_actividades_fisicas.html" class="no-ch">Tipos de Actividades Fisicas</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="alimentacin_saludable.html" class="current-page-parent daddy">Alimentación Saludable</a>
+      <ul>
+         <li id="active"><a href="actividad.html" class="active no-ch">Actividad</a></li>
+      </ul>
+      </li>
+      <li><a href="higiene_personal.html" class="daddy">Higiene Personal</a>
+      <ul class="other-section">
+         <li><a href="memorama.html" class="no-ch">Memorama</a></li>
+      </ul>
+      </li>
+      <li><a href="salud_mental_y_emocional.html" class="daddy">Salud Mental y Emocional</a>
+      <ul class="other-section">
+         <li><a href="juego.html" class="no-ch">Juego</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="lenguaje_de_seas.html" class="daddy">Lenguaje de Señas</a>
+   <ul class="other-section">
+      <li><a href="generador.html" class="no-ch">Generador</a></li>
+      <li><a href="palabra_secreta.html" class="no-ch">Palabra Secreta</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="alimentacin_saludable.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="higiene_personal.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Actividad</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id136">
+<div class="iDevice emphasis0" >
+<div id="ta136_129_2" class="block iDevice_content">
+<div class="exe-text"><style>
+        canvas {
+            border: 2px solid black;
+            margin: 10px;
+        }
+    </style>
+<h1>Plato del Buen Comer</h1>
+<p>Arrastra los alimentos al plato del buen comer en la categoría correcta. El borde se pondrá verde si es correcto.</p>
+<p><canvas id="gameCanvas" width="700" height="800"></canvas></p>
+<p>
+<script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const background = new Image();
+        background.src = 'plato.png'; // Cambia por la ruta de tu imagen
+
+        // Función para convertir grados a radianes
+        function gradosARadianes(grados) {
+            return (grados * Math.PI) / 180;
+        }
+
+        // Definir las cajas de clasificación (sectores del plato)
+        const categories = {
+            cereals: { x: 350, y: 450, radius: 240, startAngle: gradosARadianes(90), endAngle: gradosARadianes(202), label: "Cereales", correct: false },
+            vegetables: { x: 350, y: 450, radius: 240, startAngle: gradosARadianes(201), endAngle: gradosARadianes(272), label: "Verduras", correct: false },
+            fruits: { x: 350, y: 450, radius: 240, startAngle: gradosARadianes(271), endAngle: gradosARadianes(333), label: "Frutas", correct: false },
+            meats: { x: 350, y: 450, radius: 240, startAngle: gradosARadianes(333), endAngle: gradosARadianes(380), label: "Carnes", correct: false },
+            legumes: { x: 350, y: 450, radius: 240, startAngle: gradosARadianes(20), endAngle: gradosARadianes(90), label: "Leguminosas", correct: false }
+        };
+
+        // Objetos arrastrables (alimentos)
+        const objects = [
+            { name: "🥩", category: "meats", x: 70, y: 50, width: 40, height: 40 }, // carne
+            { name: "🍚", category: "cereals", x: 150, y: 50, width: 40, height: 40 }, // arroz
+            { name: "🥦", category: "vegetables", x: 230, y: 50, width: 40, height: 40 }, // verduras
+            { name: "🍎", category: "fruits", x: 310, y: 50, width: 40, height: 40 }, // frutas
+            { name: "🍳", category: "meats", x: 390, y: 50, width: 40, height: 40 }, // huevo
+            { name: "🥜", category: "legumes", x: 470, y: 50, width: 40, height: 40 } // nueces (leguminosas)
+        ];
+
+        let draggedObject = null;
+        let offsetX, offsetY;
+
+        // Dibujar las cajas de clasificación (divisiones del plato)
+        function drawPlateSection(box) {
+            ctx.beginPath();
+            ctx.arc(box.x, box.y, box.radius, box.startAngle, box.endAngle);
+            ctx.lineTo(box.x, box.y);
+            ctx.closePath();
+            ctx.fillStyle = box.correct ? "#C1EFC1" : "rgba(255, 0, 0, 255)"; // Fondo transparente si no es correcto
+            ctx.fill();
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.fillStyle = "black";
+            ctx.font = "16px Arial";
+            const textX = box.x + box.radius * Math.cos((box.startAngle + box.endAngle) / 2) / 1.5;
+            const textY = box.y + box.radius * Math.sin((box.startAngle + box.endAngle) / 2) / 1.5;
+            ctx.fillText(box.label, textX, textY);
+        }
+
+        // Dibujar los objetos (alimentos)
+        function drawObjects() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar imagen de fondo (300x300)
+            ctx.drawImage(background, 50, 150, 600, 600); // Coordenadas (x, y) y dimensiones (300x300)
+
+            // Dibujar el plato (divisiones en secciones)
+            for (const key in categories) {
+                drawPlateSection(categories[key]);
+            }
+
+            // Dibujar alimentos
+            objects.forEach(obj => {
+                ctx.font = "40px Arial";
+                ctx.fillText(obj.name, obj.x, obj.y + obj.height);
+            });
+        }
+
+        function isInsideObject(x, y, obj) {
+            return x > obj.x && x < obj.x + obj.width && y > obj.y && y < obj.y + obj.height;
+        }
+
+        function isInsideCategory(x, y, category) {
+            const dist = Math.sqrt((x - category.x) ** 2 + (y - category.y) ** 2);
+            const angle = Math.atan2(y - category.y, x - category.x);
+            const normalizedAngle = angle < 0 ? angle + 2 * Math.PI : angle;
+            return dist <= category.radius && normalizedAngle >= category.startAngle && normalizedAngle <= category.endAngle;
+        }
+
+        canvas.addEventListener("mousedown", (e) => {
+            const mouseX = e.offsetX;
+            const mouseY = e.offsetY;
+
+            for (const obj of objects) {
+                if (isInsideObject(mouseX, mouseY, obj)) {
+                    draggedObject = obj;
+                    offsetX = mouseX - obj.x;
+                    offsetY = mouseY - obj.y;
+                    break;
+                }
+            }
+        });
+
+        canvas.addEventListener("mousemove", (e) => {
+            if (draggedObject) {
+                draggedObject.x = e.offsetX - offsetX;
+                draggedObject.y = e.offsetY - offsetY;
+                drawObjects();
+            }
+        });
+
+        canvas.addEventListener("mouseup", (e) => {
+            if (draggedObject) {
+                const mouseX = e.offsetX;
+                const mouseY = e.offsetY;
+
+                // Verificar si el objeto se ha soltado dentro de una categoría del plato
+                for (const key in categories) {
+                    const category = categories[key];
+                    if (isInsideCategory(mouseX, mouseY, category)) {
+                        if (draggedObject.category === key) {
+                            category.correct = true; // Borde verde si es correcto
+                        } else {
+                            category.correct = false; // No verde si es incorrecto
+                        }
+                    }
+                }
+
+                draggedObject = null;
+                drawObjects();
+            }
+        });
+
+        // Esperar a que la imagen de fondo cargue antes de dibujar todo
+        background.onload = function() {
+            drawObjects();
+        };
+    </script>
+</p></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="alimentacin_saludable.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="higiene_personal.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script></body></html>

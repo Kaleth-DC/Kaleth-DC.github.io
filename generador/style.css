@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #aee7d3;
+  }
+  
+.exe-text{
+	background-color: #aee7d3;
+}
+
+.iDevice_inner{
+	background-color: #aee7d3;
+}
+  
+  h1 {
+    color: #333;
+  }
+  
+  #game-container {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .controles{
+    /*border: 1px solid red;*/
+    text-align: center;
+    display: flex; /* Cambia el layout a flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 10px; /* Añade espacio entre los elementos */
+    margin-top: 10px; /* Espaciado superior */
+  }
+  
+  .control {
+    /*border: 1px solid black;*/
+    width: 60px;
+    height: 400px;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    justify-content: flex-end; /* Empuja la imagen hacia la parte inferior */
+    align-items: center; /* Centra horizontalmente la imagen */
+  }
+  
+  .imagen-control {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del control */
+    max-height: 100%; /* Asegura que la imagen no exceda el alto del control */
+    object-fit: cover; /* Mantiene la proporción de la imagen y la ajusta al tamaño del control */
+    /*border: 1px solid green;*/
+  }
+
+  .imagen-control:hover{
+    scale: 120%;
+  }
+
+  .imagen-control:active{
+    scale: 80%;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: row; /* Elementos uno al lado del otro */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    align-items: center; /* Centrar contenido verticalmente */
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.labelcustom {
+    color: #FFF5A5; /* Amarillo suave */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.inputcustom[type="text"] {
+    width: 250px;
+    height: 50px;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #333;
+    border: 3px solid #FFCF49; /* Amarillo suave */
+    border-radius: 25px; /* Bordes redondeados */
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: #FFF5A5; /* Fondo amarillo suave */
+    transition: all 0.3s ease-in-out;
+}
+
+.inputcustom[type="text"]:focus {
+    border-color: #64C361; /* Verde claro al hacer focus */
+    background-color: #E1FFB1; /* Cambio de fondo a verde suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.inputcustom[type="text"]::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Estilo del botón */
+.buttoncustom {
+  padding: 10px 20px;
+  background-color: #FFCF49; /* Color amarillo brillante */
+  border: none;
+  border-radius: 25px;
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: background-color 0.3s, transform 0.2s ease;
+  height: 50px; /* Igualar la altura del botón al input */
+  display: flex;
+  align-items: center; /* Alinear texto del botón verticalmente */
+  margin-left: 10px;
+}
+
+.buttoncustom:hover {
+  background-color: #64C361; /* Verde claro al pasar el mouse */
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.buttoncustom:active {
+  background-color: #FFD700; /* Amarillo más fuerte al hacer clic */
+  transform: scale(1); /* Vuelve al tamaño original */
+}
